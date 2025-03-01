@@ -169,16 +169,20 @@ const TicTacToeDice = () => {
 			const updatedCell = { ...newBoard[index] };
 			delete updatedCell[otherPlayer];
 
-			// Update player's dice inventory - return the opponent's die
+			// Update player's dice inventory - return the opponent's die, but make it normal
 			const updatedDice = { ...playerDice };
 			if (newBoard[index][`${otherPlayer}_type`] === "normal") {
 				updatedDice[otherPlayer].normal += 1;
 			} else {
 				updatedDice[otherPlayer].normal += 1;
-				// updatedDice[otherPlayer].special[newBoard[index][otherPlayer]] += 1;
 			}
 
-			// Don't place the current player's die
+			// Don't place the current player's die, but lose the special die
+
+			// Decrement the special die count for the current player if the selected dice type is special
+			if (selectedDiceType === "special") {
+				updatedDice[currentPlayer].special[selectedDiceValue] -= 1;
+			}
 			newBoard[index] = updatedCell;
 			setBoard(newBoard);
 			setPlayerDice(updatedDice);
