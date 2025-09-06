@@ -1,6 +1,268 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Complete utility classes from working backup */
+@layer utilities {
+  /* Size utilities with CSS variables for maintainability */
+  .w-3, .w-4, .w-8, .w-10, .w-12, .w-20 { width: var(--size); }
+  .w-3 { --size: 0.75rem; }
+  .w-4 { --size: 1rem; }
+  .w-8 { --size: 2rem; }
+  .w-10 { --size: 2.5rem; }
+  .w-12 { --size: 3rem; }
+  .w-20 { --size: 5rem; }
+  
+  .h-3, .h-4, .h-8, .h-10, .h-12, .h-20 { height: var(--size); }
+  .h-3 { --size: 0.75rem; }
+  .h-4 { --size: 1rem; }
+  .h-8 { --size: 2rem; }
+  .h-10 { --size: 2.5rem; }
+  .h-12 { --size: 3rem; }
+  .h-20 { --size: 5rem; }
+  
+  .max-w-md { max-width: 28rem; }
+  
+  /* Border radius utilities */
+  .rounded, .rounded-lg, .rounded-xl { border-radius: var(--radius); }
+  .rounded { --radius: 0.25rem; }
+  .rounded-lg { --radius: 0.5rem; }
+  .rounded-xl { --radius: 0.75rem; }
+  
+  /* Padding utilities */
+  .p-3, .p-4, .p-6, .p-8 { padding: var(--padding); }
+  .p-3 { --padding: 0.75rem; }
+  .p-4 { --padding: 1rem; }
+  .p-6 { --padding: 1.5rem; }
+  .p-8 { --padding: 2rem; }
+  
+  .px-2, .px-4, .px-6, .px-8 { padding-left: var(--px); padding-right: var(--px); }
+  .px-2 { --px: 0.5rem; }
+  .px-4 { --px: 1rem; }
+  .px-6 { --px: 1.5rem; }
+  .px-8 { --px: 2rem; }
+  
+  .py-1, .py-2, .py-3, .py-4 { padding-top: var(--py); padding-bottom: var(--py); }
+  .py-1 { --py: 0.25rem; }
+  .py-2 { --py: 0.5rem; }
+  .py-3 { --py: 0.75rem; }
+  .py-4 { --py: 1rem; }
+  
+  .pl-5 { padding-left: 1.25rem; }
+  
+  /* Margin utilities */
+  .mr-2, .mr-3, .mr-4 { margin-right: var(--mr); }
+  .mr-2 { --mr: 0.5rem; }
+  .mr-3 { --mr: 0.75rem; }
+  .mr-4 { --mr: 1rem; }
+  
+  .ml-3, .ml-4 { margin-left: var(--ml); }
+  .ml-3 { --ml: 0.75rem; }
+  .ml-4 { --ml: 1rem; }
+  
+  .mt-1, .mt-2, .mt-3, .mt-6, .mt-8 { margin-top: var(--mt); }
+  .mt-1 { --mt: 0.25rem; }
+  .mt-2 { --mt: 0.5rem; }
+  .mt-3 { --mt: 0.75rem; }
+  .mt-6 { --mt: 1.5rem; }
+  .mt-8 { --mt: 2rem; }
+  
+  .mb-2, .mb-3, .mb-4, .mb-6 { margin-bottom: var(--mb); }
+  .mb-2 { --mb: 0.5rem; }
+  .mb-3 { --mb: 0.75rem; }
+  .mb-4 { --mb: 1rem; }
+  .mb-6 { --mb: 1.5rem; }
+  
+  /* Gap and spacing */
+  .gap-2 { gap: 0.5rem; }
+  .space-x-2 > * + * { margin-left: 0.5rem; }
+  .space-x-4 > * + * { margin-left: 1rem; }
+  .space-y-1 > * + * { margin-top: 0.25rem; }
+  
+  /* Background colors */
+  .bg-white { background-color: rgb(255 255 255); }
+  .bg-gray-50 { background-color: rgb(249 250 251); }
+  .bg-gray-100 { background-color: rgb(243 244 246); }
+  .bg-gray-200 { background-color: rgb(229 231 235); }
+  .bg-gray-800 { background-color: rgb(31 41 55); }
+  .bg-blue-50 { background-color: rgb(239 246 255); }
+  .bg-blue-100 { background-color: rgb(219 234 254); }
+  .bg-blue-200 { background-color: rgb(191 219 254); }
+  .bg-blue-500 { background-color: rgb(59 130 246); }
+  .bg-red-50 { background-color: rgb(254 242 242); }
+  .bg-red-100 { background-color: rgb(254 226 226); }
+  .bg-red-200 { background-color: rgb(254 202 202); }
+  .bg-red-500 { background-color: rgb(239 68 68); }
+  .bg-green-100 { background-color: rgb(220 252 231); }
+  .bg-green-200 { background-color: rgb(187 247 208); }
+  .bg-green-500 { background-color: rgb(34 197 94); }
+  .bg-yellow-400 { background-color: rgb(250 204 21); }
+  
+  /* Hover background colors */
+  .hover\:bg-blue-100:hover { background-color: rgb(219 234 254); }
+  .hover\:bg-blue-200:hover { background-color: rgb(191 219 254); }
+  .hover\:bg-blue-300:hover { background-color: rgb(147 197 253); }
+  .hover\:bg-red-100:hover { background-color: rgb(254 226 226); }
+  .hover\:bg-red-200:hover { background-color: rgb(254 202 202); }
+  .hover\:bg-red-300:hover { background-color: rgb(252 165 165); }
+  .hover\:bg-gray-100:hover { background-color: rgb(243 244 246); }
+  .hover\:bg-gray-200:hover { background-color: rgb(229 231 235); }
+  .hover\:bg-gray-300:hover { background-color: rgb(209 213 219); }
+  .hover\:bg-gray-700:hover { background-color: rgb(55 65 81); }
+  
+  /* Gradient utilities */
+  .from-gray-50 { --tw-gradient-from: rgb(249 250 251); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .from-blue-50 { --tw-gradient-from: rgb(239 246 255); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .from-blue-100 { --tw-gradient-from: rgb(219 234 254); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .from-red-50 { --tw-gradient-from: rgb(254 242 242); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .from-red-100 { --tw-gradient-from: rgb(254 226 226); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .from-green-400 { --tw-gradient-from: rgb(74 222 128); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .from-yellow-400 { --tw-gradient-from: rgb(250 204 21); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .via-blue-25 { --tw-gradient-stops: var(--tw-gradient-from), rgb(247 251 255), var(--tw-gradient-to); }
+  .via-red-25 { --tw-gradient-stops: var(--tw-gradient-from), rgb(255 249 249), var(--tw-gradient-to); }
+  .via-white { --tw-gradient-stops: var(--tw-gradient-from), rgb(255 255 255), var(--tw-gradient-to); }
+  .to-white { --tw-gradient-to: rgb(255 255 255); }
+  .to-gray-200 { --tw-gradient-to: rgb(229 231 235); }
+  .to-green-600 { --tw-gradient-to: rgb(22 163 74); }
+  .to-orange-500 { --tw-gradient-to: rgb(249 115 22); }
+  
+  /* Border utilities */
+  .border { border-width: 1px; }
+  .border-2 { border-width: 2px; }
+  .border-4 { border-width: 4px; }
+  .border-dashed { border-style: dashed; }
+  .border-gray-200 { border-color: rgb(229 231 235); }
+  .border-gray-300 { border-color: rgb(209 213 219); }
+  .border-blue-200 { border-color: rgb(191 219 254); }
+  .border-blue-300 { border-color: rgb(147 197 253); }
+  .border-red-200 { border-color: rgb(254 202 202); }
+  .border-red-300 { border-color: rgb(252 165 165); }
+  .border-green-500 { border-color: rgb(34 197 94); }
+  .border-yellow-600 { border-color: rgb(202 138 4); }
+  
+  /* Text utilities */
+  .text-xs { font-size: 0.75rem; line-height: 1rem; }
+  .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+  .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+  .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+  .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+  .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+  .text-5xl { font-size: 3rem; line-height: 1; }
+  .font-medium { font-weight: 500; }
+  .font-bold { font-weight: 700; }
+  
+  /* Text colors */
+  .text-white { color: rgb(255 255 255); }
+  .text-black { color: rgb(0 0 0); }
+  .text-gray-400 { color: rgb(156 163 175); }
+  .text-gray-600 { color: rgb(75 85 99); }
+  .text-gray-700 { color: rgb(55 65 81); }
+  .text-gray-800 { color: rgb(31 41 55); }
+  .text-blue-600 { color: rgb(37 99 235); }
+  .text-blue-700 { color: rgb(29 78 216); }
+  .text-blue-800 { color: rgb(30 64 175); }
+  .text-red-600 { color: rgb(220 38 38); }
+  .text-red-700 { color: rgb(185 28 28); }
+  .text-red-800 { color: rgb(153 27 27); }
+  .text-green-600 { color: rgb(22 163 74); }
+  .text-yellow-600 { color: rgb(202 138 4); }
+  .text-yellow-900 { color: rgb(113 63 18); }
+  
+  /* Shadow utilities */
+  .shadow, .shadow-lg, .shadow-md { box-shadow: var(--shadow); }
+  .shadow { --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); }
+  .shadow-md { --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+  .shadow-lg { --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+  .drop-shadow-lg { filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1)); }
+  
+  /* Interactive utilities */
+  .cursor-pointer { cursor: pointer; }
+  .cursor-not-allowed { cursor: not-allowed; }
+  .opacity-50 { opacity: 0.5; }
+  .opacity-60 { opacity: 0.6; }
+  .opacity-90 { opacity: 0.9; }
+  .transition-all { 
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  .transition-colors { 
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  .duration-200 { transition-duration: 200ms; }
+  .duration-300 { transition-duration: 300ms; }
+  .ring-2 { 
+    --tw-ring-shadow: 0 0 0 2px var(--tw-ring-color);
+    box-shadow: var(--tw-ring-shadow);
+  }
+  .ring-white { --tw-ring-color: rgb(255 255 255); }
+  
+  /* Layout utilities */
+  .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .flex-col { flex-direction: column; }
+  .items-center { align-items: center; }
+  .justify-center { justify-content: center; }
+  .text-center { text-align: center; }
+  .list-disc { list-style-type: disc; }
+}
+
+/* Custom animations from backup */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes diceRoll3D {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  25% { transform: rotateX(90deg) rotateY(180deg) rotateZ(90deg); }
+  50% { transform: rotateX(180deg) rotateY(360deg) rotateZ(180deg); }
+  75% { transform: rotateX(270deg) rotateY(540deg) rotateZ(270deg); }
+  100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
+}
+
+@keyframes diceCrashLeft {
+  0% { transform: translateX(0) scale(1); opacity: 1; }
+  50% { transform: translateX(12px) scale(1.2); opacity: 0.8; }
+  100% { transform: translateX(12px) scale(0); opacity: 0; }
+}
+
+@keyframes diceCrashRight {
+  0% { transform: translateX(0) scale(1); opacity: 1; }
+  50% { transform: translateX(-12px) scale(1.2); opacity: 0.8; }
+  100% { transform: translateX(-12px) scale(0); opacity: 0; }
+}
+
+@keyframes diceExplosion {
+  0% { transform: scale(1); opacity: 1; filter: brightness(1); }
+  30% { transform: scale(1.3); opacity: 1; filter: brightness(1.5); }
+  100% { transform: scale(0.3); opacity: 0; filter: brightness(2) blur(2px); }
+}
+
+/* Animation classes */
+.animate-bounce { animation: bounce 0.3s ease-in-out; }
+.animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.animate-spin { animation: spin 0.5s ease-in-out; }
+.animate-dice-roll { animation: diceRoll3D 0.8s ease-in-out; transform-style: preserve-3d; }
+.animate-crash-left { animation: diceCrashLeft 0.6s ease-in-out forwards; }
+.animate-crash-right { animation: diceCrashRight 0.6s ease-in-out forwards; }
+.animate-explosion { animation: diceExplosion 0.4s ease-out forwards; }
 
 body {
   margin: 0;
